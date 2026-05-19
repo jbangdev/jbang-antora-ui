@@ -19,12 +19,12 @@ jobs:
 
     steps:
     - name: Clone the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       with:
         fetch-depth: 1
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -50,7 +50,7 @@ jobs:
       if: ( steps.build_bundle.outcome  != 'failure' )
         &&  ( steps.build_bundle.outcome != 'skipped' )
       id: upload_release
-      uses: "marvinpinto/action-automatic-releases@latest"
+      uses: "marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1" # latest
       with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false

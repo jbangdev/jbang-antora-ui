@@ -32,12 +32,12 @@ jobs:
 
     steps:
     - name: Clone the repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       with:
         fetch-depth: 1
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -58,7 +58,7 @@ jobs:
     # https://github.com/marketplace/actions/add-commit?version=v4.1.0
     # for use options.
     - name: Commit Packages
-      uses: EndBug/add-and-commit@v4
+      uses: EndBug/add-and-commit@a988073222b8bd50f3ecfca9c0ab7dfbf0d08ceb # v4
       with:
         message: "Commit files for CI workflow"
         # Commits these files to root if and only if there are changes.
