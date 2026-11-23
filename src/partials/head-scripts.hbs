@@ -3,3 +3,14 @@
     <script>function gtag(){dataLayer.push(arguments)};window.dataLayer=window.dataLayer||[];gtag('js',new Date());gtag('config','{{this}}')</script>
     {{/with}}
     <script>var uiRootPath = '{{{uiRootPath}}}'</script>
+    <script>
+      (function () {
+        var mode = 'auto'
+        try { mode = window.localStorage.getItem('jb-theme') || 'auto' } catch (e) {}
+        if (mode !== 'light' && mode !== 'dark') mode = 'auto'
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        var root = document.documentElement
+        root.setAttribute('data-theme-mode', mode)
+        root.setAttribute('data-theme', mode === 'auto' ? (prefersDark ? 'dark' : 'light') : mode)
+      })()
+    </script>
