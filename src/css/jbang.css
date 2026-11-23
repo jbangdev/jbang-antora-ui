@@ -1,0 +1,207 @@
+/*
+ * jbang.dev look for the docs chrome: header, search, theme toggle and footer.
+ * Values mirror jbang.dev's masthead/footer (Plus Jakarta Sans, --jb-* colors).
+ */
+
+/* ---- Header ---- */
+.jb-navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--panel-border-color);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.jb-navbar .navbar-brand {
+  flex: none;
+  height: 100%;
+  padding-left: 0;
+}
+
+.jb-navbar .navbar-brand .jb-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+}
+
+.jb-brand__logo {
+  height: 2.6rem;
+  width: auto;
+}
+
+.jb-brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  gap: 0.1rem;
+}
+
+.jb-brand__title {
+  color: var(--heading-font-color);
+  font-size: calc(25 / var(--rem-base) * 1rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.jb-brand__subtitle {
+  color: var(--toolbar-muted-color);
+  font-size: calc(14 / var(--rem-base) * 1rem);
+  font-weight: 500;
+}
+
+.jb-navbar .navbar-end > a.navbar-item {
+  color: var(--navbar-font-color);
+  font-size: calc(18 / var(--rem-base) * 1rem);
+  font-weight: 500;
+}
+
+.jb-navbar .navbar-end > a.navbar-item:hover {
+  color: var(--link-font-color);
+}
+
+.jb-navbar .jb-github .fa-github {
+  font-size: 1.15em;
+}
+
+/* ---- Search + theme toggle ---- */
+.jb-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0 0 0.75rem;
+}
+
+#search-input,
+[data-theme="dark"] #search-input {
+  width: 11rem;
+  height: 2.2rem;
+  padding: 0 1rem;
+  border: 1px solid var(--link-font-color);
+  border-radius: 999px;
+  background: var(--panel-background);
+  box-shadow: 0 0 0 3px rgba(235, 88, 111, 0.1);
+  color: var(--body-font-color);
+  font-family: inherit;
+  font-size: calc(16 / var(--rem-base) * 1rem);
+  outline: none;
+}
+
+#search-input:focus {
+  box-shadow: 0 0 0 3px rgba(235, 88, 111, 0.25);
+}
+
+#search-input::placeholder {
+  color: var(--toolbar-muted-color);
+}
+
+.jb-tools .theme-toggle {
+  width: 2.1rem;
+  height: 2.1rem;
+  margin-left: 0;
+  color: var(--navbar-font-color);
+  font-size: 1rem;
+}
+
+.jb-tools .theme-toggle:hover {
+  border-color: var(--link-font-color);
+  color: var(--link-font-color);
+}
+
+/* ---- Desktop ---- */
+@media screen and (min-width: 1024px) {
+  .jb-navbar .navbar-end > a.navbar-item,
+  .jb-navbar .navbar-end > a.navbar-item:hover {
+    background: none;
+    padding: 0 0.85rem;
+  }
+}
+
+/* ---- Mobile: brand | search + toggle | burger, menu drops down ---- */
+@media screen and (max-width: 1023.5px) {
+  .jb-tools {
+    margin-left: auto;
+    padding: 0;
+  }
+
+  .jb-navbar .navbar-burger {
+    margin-left: 0.25rem;
+    height: 100%;
+    width: 2.5rem;
+  }
+
+  /* jbang.dev's hamburger: three thick red bars */
+  .jb-navbar .navbar-burger span {
+    background-color: #b60000;
+    height: 3px;
+    width: 1.4rem;
+  }
+
+  .jb-navbar .navbar-burger span + span {
+    margin-top: 4px;
+  }
+
+  .jb-navbar .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  #search-input,
+  [data-theme="dark"] #search-input {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 479.5px) {
+  .jb-brand__logo {
+    height: 2rem;
+  }
+
+  .jb-brand__title {
+    font-size: calc(20 / var(--rem-base) * 1rem);
+  }
+
+  .jb-brand__subtitle {
+    max-width: 5.5rem;
+    font-size: calc(12 / var(--rem-base) * 1rem);
+  }
+
+  #search-input,
+  [data-theme="dark"] #search-input {
+    width: 6.5rem;
+  }
+}
+
+/* ---- Footer ---- */
+footer.jb-footer {
+  border-top: 1px solid var(--panel-border-color);
+  padding: 2.5rem 2rem 2rem;
+}
+
+.jb-footer .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  font-size: calc(16 / var(--rem-base) * 1rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.jb-footer .social-icons a {
+  color: var(--footer-link-font-color);
+}
+
+.jb-footer .social-icons a:hover {
+  color: var(--link-font-color);
+}
+
+.jb-footer .page__footer-copyright {
+  font-size: calc(14 / var(--rem-base) * 1rem);
+}

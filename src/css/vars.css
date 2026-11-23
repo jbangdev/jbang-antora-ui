@@ -22,19 +22,19 @@
   --body-font-size--desktop: 1.125em; /* 18px */
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
-  --body-font-color: var(--color-jet-70);
-  --body-font-family: "Roboto", sans-serif;
-  --body-font-weight-bold: 500;
-  --monospace-font-family: "Roboto Mono", monospace;
+  --body-font-color: #0f172a; /* jbang.dev --jb-text */
+  --body-font-family: "Plus Jakarta Sans", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", sans-serif;
+  --body-font-weight-bold: 600;
+  --monospace-font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
-  --panel-background: var(--color-smoke-30);
-  --panel-border-color: var(--color-smoke-90);
+  --panel-background: #f8fafc; /* --jb-surface */
+  --panel-border-color: #e2e8f0; /* --jb-border */
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
-  --navbar-background: var(--color-white);
-  --navbar-font-color: var(--color-black);
+  --navbar-background: rgba(255, 255, 255, 0.85);
+  --navbar-font-color: #475569; /* --jb-text-muted */
   --navbar_hover-background: #eb586f;
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
@@ -42,20 +42,20 @@
   --navbar-menu-border-color: var(--panel-border-color);
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: var(--color-smoke-50);
+  --navbar-menu_hover-background: #f1f5f9;
   /* nav */
   --nav-background: var(--panel-background);
-  --nav-border-color: var(--color-gray-10);
+  --nav-border-color: var(--panel-border-color);
   --nav-line-height: 1.35;
-  --nav-heading-font-color: var(--color-jet-30);
-  --nav-muted-color: var(--color-gray-70);
-  --nav-panel-divider-color: var(--color-smoke-90);
-  --nav-secondary-background: var(--color-smoke-70);
+  --nav-heading-font-color: #0f172a;
+  --nav-muted-color: #475569;
+  --nav-panel-divider-color: var(--panel-border-color);
+  --nav-secondary-background: #f1f5f9;
   /* toolbar */
-  --toolbar-background: var(--panel-background);
+  --toolbar-background: var(--body-background);
   --toolbar-border-color: var(--panel-border-color);
-  --toolbar-font-color: var(--color-gray-70);
-  --toolbar-muted-color: var(--color-gray-30);
+  --toolbar-font-color: #475569;
+  --toolbar-muted-color: #64748b;
   --page-version-menu-background: var(--color-smoke-70);
   --page-version-missing-font-color: var(--color-gray-30);
   /* admonitions */
@@ -70,18 +70,18 @@
   --warning-color: #e18114;
   --warning-on-color: var(--color-white);
   /* doc */
-  --doc-font-color: var(--color-jet-50);
+  --doc-font-color: #1e293b;
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
   --doc-margin: 0 auto;
   --doc-margin--desktop: 0 2rem;
-  --heading-font-color: var(--color-jet-80);
-  --heading-font-weight: normal;
+  --heading-font-color: #0f172a;
+  --heading-font-weight: 700;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
+  --link-font-color: #eb586f; /* --jb-accent */
+  --link_hover-font-color: #d63d56; /* --jb-accent-hover */
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -114,11 +114,11 @@
   --toc-line-height: 1.2;
   /* footer */
   --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--color-smoke-90);
-  --footer-font-color: var(--color-gray-70);
-  --footer-link-font-color: var(--color-jet-80);
+  --footer-background: var(--panel-background);
+  --footer-font-color: #475569;
+  --footer-link-font-color: #475569;
   /* dimensions and positioning */
-  --navbar-height: calc(63 / var(--rem-base) * 1rem);
+  --navbar-height: calc(80 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
   --drawer-height: var(--toolbar-height);
   --body-top: var(--navbar-height);
@@ -163,8 +163,8 @@
   --panel-background: var(--color-smoke-30);
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
-  --navbar-background: var(--color-smoke-10);
-  --navbar-font-color: var(--color-jet-80);
+  --navbar-background: rgba(11, 15, 25, 0.82);
+  --navbar-font-color: #94a3b8;
   --navbar_hover-background: #eb586f;
   --navbar-button-background: var(--color-smoke-50);
   --navbar-button-border-color: var(--panel-border-color);
