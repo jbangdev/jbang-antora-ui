@@ -272,3 +272,69 @@ footer.jb-footer {
 .jb-footer .page__footer-copyright {
   font-size: calc(14 / var(--rem-base) * 1rem);
 }
+
+/* ---- Theme-aware icons ----
+ * Antora's toolbar and nav icons are SVG background images with hardcoded dark
+ * fills (#222, #5d5d5d, #c1c1c1), so they all but disappear in dark mode.
+ * Use the same SVGs as masks and paint them with theme colors instead.
+ */
+.nav-toggle,
+.home-link,
+.nav-item-toggle,
+.nav-panel-explore .context .version::after {
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.nav-toggle {
+  background: var(--toolbar-font-color);
+  -webkit-mask-image: url(../img/menu.svg);
+  mask-image: url(../img/menu.svg);
+  -webkit-mask-position: 50% 47.5%;
+  mask-position: 50% 47.5%;
+  -webkit-mask-size: 49%;
+  mask-size: 49%;
+}
+
+.nav-toggle.is-active {
+  background: var(--toolbar-font-color);
+  -webkit-mask-image: url(../img/back.svg);
+  mask-image: url(../img/back.svg);
+  -webkit-mask-size: 41.5%;
+  mask-size: 41.5%;
+}
+
+.home-link {
+  background: var(--toolbar-font-color);
+  -webkit-mask-image: url(../img/home-o.svg);
+  mask-image: url(../img/home-o.svg);
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.home-link:hover,
+.home-link.is-current {
+  background: var(--toolbar-font-color);
+  -webkit-mask-image: url(../img/home.svg);
+  mask-image: url(../img/home.svg);
+}
+
+.nav-item-toggle {
+  background: var(--color-gray-30);
+  -webkit-mask-image: url(../img/caret.svg);
+  mask-image: url(../img/caret.svg);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 50%;
+  mask-size: 50%;
+}
+
+.nav-panel-explore .context .version::after {
+  background: var(--nav-muted-color);
+  -webkit-mask-image: url(../img/chevron.svg);
+  mask-image: url(../img/chevron.svg);
+  -webkit-mask-position: center right;
+  mask-position: center right;
+  -webkit-mask-size: auto 100%;
+  mask-size: auto 100%;
+}
