@@ -1,61 +1,66 @@
 :root {
-  /* colors */
+  /* colors: jbang.dev's slate palette (--jb-* tokens), same scale names as Antora's default UI */
   --color-white: #fff;
   --color-smoke-10: #fefefe;
-  --color-smoke-30: #fafafa;
-  --color-smoke-50: #f5f5f5;
-  --color-smoke-70: #f0f0f0;
-  --color-smoke-90: #e1e1e1;
-  --color-gray-10: #c1c1c1;
-  --color-gray-30: #8e8e8e;
-  --color-gray-50: #808080;
-  --color-gray-70: #5d5d5d;
-  --color-jet-20: #4a4a4a;
-  --color-jet-30: #424242;
-  --color-jet-50: #333;
-  --color-jet-70: #222;
-  --color-jet-80: #191919;
+  --color-smoke-30: #f8fafc; /* --jb-surface */
+  --color-smoke-50: #f1f5f9;
+  --color-smoke-70: #edf1f6;
+  --color-smoke-90: #e2e8f0; /* --jb-border */
+  --color-gray-10: #cbd5e1; /* --jb-border-strong */
+  --color-gray-30: #94a3b8;
+  --color-gray-50: #64748b; /* --jb-text-subtle */
+  --color-gray-70: #475569; /* --jb-text-muted */
+  --color-jet-20: #334155;
+  --color-jet-30: #334155;
+  --color-jet-50: #1e293b;
+  --color-jet-70: #0f172a; /* --jb-text */
+  --color-jet-80: #0f172a;
   --color-black: #000;
+  --color-accent: #eb586f; /* --jb-accent */
+  --color-accent-hover: #d63d56; /* --jb-accent-hover */
+  --color-accent-soft: rgba(235, 88, 111, 0.1); /* --jb-accent-soft */
+  --color-accent-ring: rgba(235, 88, 111, 0.25);
+  --color-burger: #b60000; /* jbang.dev mobile hamburger */
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
   --body-font-size--desktop: 1.125em; /* 18px */
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
-  --body-font-color: #0f172a; /* jbang.dev --jb-text */
+  --body-font-color: var(--color-jet-70);
   --body-font-family: "Plus Jakarta Sans", -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto", sans-serif;
   --body-font-weight-bold: 600;
   --monospace-font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "Menlo", "Monaco", "Consolas", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
-  --panel-background: #f8fafc; /* --jb-surface */
-  --panel-border-color: #e2e8f0; /* --jb-border */
+  --panel-background: var(--color-smoke-30);
+  --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
   --navbar-background: rgba(255, 255, 255, 0.85);
-  --navbar-font-color: #475569; /* --jb-text-muted */
-  --navbar_hover-background: #eb586f;
+  --navbar-font-color: var(--color-gray-70);
+  --navbar_hover-background: var(--color-accent);
   --navbar-button-background: var(--color-white);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
   --navbar-menu-border-color: var(--panel-border-color);
   --navbar-menu-background: var(--color-white);
   --navbar-menu-font-color: var(--body-font-color);
-  --navbar-menu_hover-background: #f1f5f9;
+  --navbar-menu_hover-background: var(--color-smoke-50);
   /* nav */
   --nav-background: var(--panel-background);
   --nav-border-color: var(--panel-border-color);
   --nav-line-height: 1.35;
-  --nav-heading-font-color: #0f172a;
-  --nav-muted-color: #475569;
+  --nav-heading-font-color: var(--color-jet-80);
+  --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--panel-border-color);
-  --nav-secondary-background: #f1f5f9;
+  --nav-secondary-background: var(--color-smoke-50);
   /* toolbar */
   --toolbar-background: var(--body-background);
   --toolbar-border-color: var(--panel-border-color);
-  --toolbar-font-color: #475569;
-  --toolbar-muted-color: #64748b;
+  --toolbar-font-color: var(--color-gray-70);
+  --toolbar-muted-color: var(--color-gray-50);
   --page-version-menu-background: var(--color-smoke-70);
   --page-version-missing-font-color: var(--color-gray-30);
   /* admonitions */
@@ -70,18 +75,18 @@
   --warning-color: #e18114;
   --warning-on-color: var(--color-white);
   /* doc */
-  --doc-font-color: #1e293b;
+  --doc-font-color: var(--color-jet-50);
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
   --doc-margin: 0 auto;
   --doc-margin--desktop: 0 2rem;
-  --heading-font-color: #0f172a;
+  --heading-font-color: var(--color-jet-80);
   --heading-font-weight: 700;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #eb586f; /* --jb-accent */
-  --link_hover-font-color: #d63d56; /* --jb-accent-hover */
+  --link-font-color: var(--color-accent);
+  --link_hover-font-color: var(--color-accent-hover);
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -115,8 +120,8 @@
   /* footer */
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--panel-background);
-  --footer-font-color: #475569;
-  --footer-link-font-color: #475569;
+  --footer-font-color: var(--color-gray-70);
+  --footer-link-font-color: var(--color-gray-70);
   /* dimensions and positioning */
   --navbar-height: calc(80 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
@@ -158,6 +163,10 @@
   --color-jet-70: #f1f5f9;
   --color-jet-80: #f8fafc;
   --color-black: #f8fafc;
+  --color-accent: #f06a7f;
+  --color-accent-hover: #ff8598;
+  --color-accent-soft: rgba(240, 106, 127, 0.14);
+  --color-accent-ring: rgba(240, 106, 127, 0.3);
   --body-font-color: var(--color-jet-70);
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
@@ -165,7 +174,7 @@
   --scrollbar-thumb-color: var(--color-gray-10);
   --navbar-background: rgba(11, 15, 25, 0.82);
   --navbar-font-color: #94a3b8;
-  --navbar_hover-background: #eb586f;
+  --navbar_hover-background: var(--color-accent);
   --navbar-button-background: var(--color-smoke-50);
   --navbar-button-border-color: var(--panel-border-color);
   --navbar-button-font-color: var(--body-font-color);
@@ -187,8 +196,8 @@
   --page-version-missing-font-color: var(--color-gray-30);
   --doc-font-color: var(--color-jet-50);
   --heading-font-color: var(--color-jet-80);
-  --link-font-color: #f06a7f;
-  --link_hover-font-color: #ff8598;
+  --link-font-color: var(--color-accent);
+  --link_hover-font-color: var(--color-accent-hover);
   --abstract-background: var(--color-smoke-50);
   --abstract-font-color: var(--color-jet-20);
   --abstract-border-color: var(--panel-border-color);

@@ -81,7 +81,7 @@
   border: 1px solid var(--link-font-color);
   border-radius: 999px;
   background: var(--panel-background);
-  box-shadow: 0 0 0 3px rgba(235, 88, 111, 0.1);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
   color: var(--body-font-color);
   font-family: inherit;
   font-size: calc(16 / var(--rem-base) * 1rem);
@@ -89,7 +89,7 @@
 }
 
 #search-input:focus {
-  box-shadow: 0 0 0 3px rgba(235, 88, 111, 0.25);
+  box-shadow: 0 0 0 3px var(--color-accent-ring);
 }
 
 #search-input::placeholder {
@@ -133,7 +133,7 @@
 
   /* jbang.dev's hamburger: three thick red bars */
   .jb-navbar .navbar-burger span {
-    background-color: #b60000;
+    background-color: var(--color-burger);
     height: 3px;
     width: 1.4rem;
   }
