@@ -3,88 +3,124 @@
  * Values mirror jbang.dev's masthead/footer (Plus Jakarta Sans, --jb-* colors).
  */
 
-/* ---- Header ---- */
+/* ---- Header ----
+ * Mirrors jbang.dev's masthead (Minimal Mistakes + modern.scss) so the header
+ * doesn't shift when moving between the site and the docs. The site sizes its
+ * masthead in rem, and its root font size steps 16/18/20/22px at 768/1024/1280px;
+ * --mh-rem reproduces those steps here (Antora's own rem stays untouched).
+ */
+:root {
+  --mh-rem: 16px;
+  /* jbang.dev's masthead font; Montserrat isn't loaded there, so it renders as the system sans-serif */
+  --mh-font-family: "Montserrat", sans-serif;
+  /* 1rem padding top/bottom + title (1.15rem x 1.5) + subtitle (0.72rem x 1.5) + 1px border */
+  --navbar-height: calc(var(--mh-rem) * 4.805 + 1px);
+}
+
+@media screen and (min-width: 768px) {
+  :root { --mh-rem: 18px; }
+}
+
+@media screen and (min-width: 1024px) {
+  :root { --mh-rem: 20px; }
+}
+
+@media screen and (min-width: 1280px) {
+  :root { --mh-rem: 22px; }
+}
+
 .jb-navbar {
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  /* site: 1rem padding inside a centered 1280px max-width wrapper */
+  padding: 0 max(var(--mh-rem), calc((100% - 1280px) / 2 + var(--mh-rem)));
   border-bottom: 1px solid var(--panel-border-color);
+  font-family: var(--mh-font-family);
+  font-size: var(--mh-rem);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
 }
 
 .jb-navbar .navbar-brand {
   flex: none;
-  height: 100%;
+  height: auto;
   padding-left: 0;
 }
 
 .jb-navbar .navbar-brand .jb-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
   padding: 0;
+  line-height: 1.5;
 }
 
 .jb-brand__logo {
-  height: 2.6rem;
+  height: calc(var(--mh-rem) * 2);
   width: auto;
+  margin-right: calc(var(--mh-rem) * 0.5);
 }
 
 .jb-brand__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-  gap: 0.1rem;
+  display: block;
+  margin-right: var(--mh-rem);
+  letter-spacing: -0.02em;
 }
 
 .jb-brand__title {
+  display: block;
   color: var(--heading-font-color);
-  font-size: calc(25 / var(--rem-base) * 1rem);
+  font-size: calc(var(--mh-rem) * 1.15);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .jb-brand__subtitle {
+  display: block;
   color: var(--toolbar-muted-color);
-  font-size: calc(14 / var(--rem-base) * 1rem);
+  font-size: calc(var(--mh-rem) * 0.72);
   font-weight: 500;
 }
 
 .jb-navbar .navbar-end > a.navbar-item {
   color: var(--navbar-font-color);
-  font-size: calc(18 / var(--rem-base) * 1rem);
+  font-size: calc(var(--mh-rem) * 0.92);
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .jb-navbar .navbar-end > a.navbar-item:hover {
-  color: var(--link-font-color);
-}
-
-.jb-navbar .jb-github .fa-github {
-  font-size: 1.15em;
+  color: var(--heading-font-color);
 }
 
 /* ---- Search + theme toggle ---- */
 .jb-tools {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0 0 0 0.75rem;
+  gap: calc(var(--mh-rem) * 0.5);
+  min-width: 0;
+  margin-left: calc(var(--mh-rem) * 0.75);
+  padding: 0;
+}
+
+/* The search box is the input itself, or DocSearch's wrapper once it loads; it shrinks on narrow screens */
+.jb-tools > :first-child {
+  flex: 0 1 auto;
+  width: calc(var(--mh-rem) * 8.5);
+  min-width: calc(var(--mh-rem) * 4);
+  margin-left: var(--mh-rem);
 }
 
 #search-input,
 [data-theme="dark"] #search-input {
-  width: 11rem;
-  height: 2.2rem;
-  padding: 0 1rem;
+  width: 100%;
+  padding: calc(var(--mh-rem) * 0.35) calc(var(--mh-rem) * 0.85);
   border: 1px solid var(--link-font-color);
   border-radius: 999px;
   background: var(--panel-background);
   box-shadow: 0 0 0 3px var(--color-accent-soft);
   color: var(--body-font-color);
-  font-family: inherit;
-  font-size: calc(16 / var(--rem-base) * 1rem);
+  font-family: var(--body-font-family);
+  font-size: calc(var(--mh-rem) * 0.85);
   outline: none;
 }
 
@@ -97,24 +133,46 @@
 }
 
 .jb-tools .theme-toggle {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 34px;
+  height: 34px;
   margin-left: 0;
   color: var(--navbar-font-color);
-  font-size: 1rem;
+  font-size: var(--mh-rem);
 }
 
 .jb-tools .theme-toggle:hover {
-  border-color: var(--link-font-color);
-  color: var(--link-font-color);
+  border-color: var(--color-gray-10);
+  color: var(--heading-font-color);
 }
 
 /* ---- Desktop ---- */
 @media screen and (min-width: 1024px) {
+  .jb-navbar .navbar-menu {
+    min-width: 0;
+  }
+
   .jb-navbar .navbar-end > a.navbar-item,
   .jb-navbar .navbar-end > a.navbar-item:hover {
     background: none;
-    padding: 0 0.85rem;
+    margin: 0 var(--mh-rem);
+    padding: 0;
+  }
+
+  /* site: accent underline slides in on hover */
+  .jb-navbar .navbar-end > a.navbar-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--link-font-color);
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .jb-navbar .navbar-end > a.navbar-item:hover::before {
+    transform: scaleX(1);
   }
 }
 
@@ -122,24 +180,28 @@
 @media screen and (max-width: 1023.5px) {
   .jb-tools {
     margin-left: auto;
-    padding: 0;
   }
 
   .jb-navbar .navbar-burger {
-    margin-left: 0.25rem;
-    height: 100%;
-    width: 2.5rem;
+    flex: none;
+    width: calc(var(--mh-rem) * 1.5 + 12px);
+    height: calc(var(--mh-rem) * 2);
+    margin-left: 0;
   }
 
-  /* jbang.dev's hamburger: three thick red bars */
+  /* jbang.dev's navicon: three red bars, 1.5rem x 0.25rem, 0.25rem apart */
   .jb-navbar .navbar-burger span {
     background-color: var(--color-burger);
-    height: 3px;
-    width: 1.4rem;
+    height: calc(var(--mh-rem) * 0.25);
+    width: calc(var(--mh-rem) * 1.5);
   }
 
   .jb-navbar .navbar-burger span + span {
-    margin-top: 4px;
+    margin-top: calc(var(--mh-rem) * 0.25);
+  }
+
+  .jb-navbar .navbar-burger.is-active span + span {
+    margin-top: calc(var(--mh-rem) * -0.25);
   }
 
   .jb-navbar .navbar-menu {
@@ -147,31 +209,36 @@
     top: 100%;
     left: 0;
     right: 0;
-  }
-
-  #search-input,
-  [data-theme="dark"] #search-input {
-    width: 8rem;
+    font-size: calc(var(--mh-rem) * 0.92);
   }
 }
 
+/* Narrow phones: the subtitle wraps to two lines, as on the site */
 @media screen and (max-width: 479.5px) {
-  .jb-brand__logo {
-    height: 2rem;
-  }
-
-  .jb-brand__title {
-    font-size: calc(20 / var(--rem-base) * 1rem);
+  :root {
+    --navbar-height: calc(var(--mh-rem) * 5.885 + 1px);
   }
 
   .jb-brand__subtitle {
-    max-width: 5.5rem;
-    font-size: calc(12 / var(--rem-base) * 1rem);
+    max-width: calc(var(--mh-rem) * 5);
   }
 
-  #search-input,
-  [data-theme="dark"] #search-input {
-    width: 6.5rem;
+  .jb-brand__text {
+    margin-right: calc(var(--mh-rem) * 0.5);
+  }
+
+  .jb-tools {
+    gap: calc(var(--mh-rem) * 0.25);
+  }
+
+  .jb-tools > :first-child {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 379.5px) {
+  .jb-brand__logo {
+    height: calc(var(--mh-rem) * 1.5);
   }
 }
 
